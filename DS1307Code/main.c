@@ -49,7 +49,7 @@ int main(void)
 		serial_tx((year>>4)|0x30);
 		serial_tx((year&0x0f)|0x30);
 		serial_tx('\n');
-		
+
 		_delay_ms(1000);
 	}
 }
