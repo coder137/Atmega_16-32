@@ -1,7 +1,11 @@
 #ifndef _KEYPAD_H
 #define _KEYPAD_H
 
-
+/*
+"""
+NOTE: rows are horizontal, columns are vertical
+"""
+*/
 /*
 1. We make the columns input(HIGH) and rows output(LOW)
 2. We read the columns value and store it in columns
@@ -23,8 +27,13 @@ unsigned char getKeypadData();
 1. If any Keypad button is pressed return 1
 2. If Keypad button is not pressed then return 0
 */
-unsigned char buttonState();
+//DEPRECEATED
+//unsigned char buttonState();
 
 unsigned char buttonValue(unsigned char);
+
+//1 if button is pressed
+//0 if button is not pressed
+unsigned char buttonState();
 
 #endif

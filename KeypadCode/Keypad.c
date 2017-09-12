@@ -7,13 +7,19 @@
 #define KEYPAD_PORT PORTA
 #define KEYPAD_PIN PINA
 
+/*
+"""
+4*4 Keypad
+C4 C3 C2 C1 R4 R3 R2 R1
+"""
+*/
 unsigned char keypadScan()
 {	
 	///Scan the Keypad
 	unsigned char columns = 0x00, rows = 0x00; //give it a set value
 	unsigned char ret;
 	KEYPAD_DDR = 0b00001111; //make the rows ouput and the columns input 
-	KEYPAD_PORT = 0b11110000;	//set the input high(Z), output low
+	KEYPAD_PORT = 0b11110000;	//set the input pullup, output low
 	_delay_us(5); //we need to wait here for the above instructions to set
 
 	//we read only columns
@@ -30,7 +36,7 @@ unsigned char keypadScan()
 	return ret;
 }
 
-
+/* OLD CODE
 unsigned char getKeypadData()
 {
 	while(1)
@@ -40,10 +46,12 @@ unsigned char getKeypadData()
 		if(state == 1)
 		{
 			dat = keypadScan();
-			return buttonValue(dat); //we send the appropriate ascii value
+			return dat;
 		}
 	}
 }
+*/
+
 
 unsigned char buttonState()
 {
@@ -57,6 +65,16 @@ unsigned char buttonState()
 		//button is not pressed, keypadScan == 0xff
 		return 0;
 	}
+}
+
+unsigned char getKeypadData()
+{
+	while(keypadScan() == 0xff); //while button is not pressed wait
+	_delay_ms(10); //debounce time delay
+	unsigned char dat = keypadScan();
+	while(keypadScan() != 0xff); //while button is pressed wait (since we only need one value not multiple)
+	_delay_ms(10); //debounce
+	return buttonValue(dat);
 }
 
 /*
@@ -76,19 +94,24 @@ unsigned char buttonValue(unsigned char buttonPress)
 	//01111110[1] //10111110 [4]
 	buttonPress = ~buttonPress;
 	//10000001[1] //01000001[4]
-	if(buttonPress == 0x81) return 0x01;
-	if(buttonPress == 0x82) return 0x02;
-	if(buttonPress == 0x84) return 0x03;
+	if(buttonPress == 0x11) return '0';
+	if(buttonPress == 0x21) return '1';
+	if(buttonPress == 0x41) return '2';
+	if(buttonPress == 0x81) return '3';
 
-	if(buttonPress == 0x41) return 0x04;
-	if(buttonPress == 0x42) return 0x05; 
-	if(buttonPress == 0x44) return 0x06;
+	if(buttonPress == 0x12) return '4';
+	if(buttonPress == 0x22) return '5'; 
+	if(buttonPress == 0x42) return '6';
+	if(buttonPress == 0x82) return '7';
 
-	if(buttonPress == 0x21) return 0x07;
-	if(buttonPress == 0x22) return 0x08;
-	if(buttonPress == 0x24) return 0x09;
+	if(buttonPress == 0x14) return '8';
+	if(buttonPress == 0x24) return '9';
+	if(buttonPress == 0x44) return 'A';
+	if(buttonPress == 0x84) return 'B';
 
-	if(buttonPress == 0x11) return 0x0A; //return an equivalent value
-	if(buttonPress == 0x12) return 0x00;
-	if(buttonPress == 0x14) return 0x0B; //return an equivalent value
+	if(buttonPress == 0x18) return 'C';
+	if(buttonPress == 0x28) return 'D';
+	if(buttonPress == 0x48) return 'E';
+	if(buttonPress == 0x88) return 'F';
+
 }
