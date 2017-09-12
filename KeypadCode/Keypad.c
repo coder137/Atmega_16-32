@@ -1,3 +1,4 @@
+
 #include <avr/io.h>
 #include <util/delay.h>
 
@@ -14,11 +15,11 @@ C4 C3 C2 C1 R4 R3 R2 R1
 """
 */
 unsigned char keypadScan()
-{	
+{
 	///Scan the Keypad
 	unsigned char columns = 0x00, rows = 0x00; //give it a set value
 	unsigned char ret;
-	KEYPAD_DDR = 0b00001111; //make the rows ouput and the columns input 
+	KEYPAD_DDR = 0b00001111; //make the rows ouput and the columns input
 	KEYPAD_PORT = 0b11110000;	//set the input pullup, output low
 	_delay_us(5); //we need to wait here for the above instructions to set
 
@@ -27,12 +28,12 @@ unsigned char keypadScan()
 
 	KEYPAD_DDR = ~KEYPAD_DDR; //do the opposite of the above step
 	KEYPAD_PORT = ~KEYPAD_PORT; //^^
-	_delay_us(5); 
+	_delay_us(5);
 
 	rows = KEYPAD_PIN & 0x0f; //this becomes //xxxx xxxx
-	
+
 	ret = columns|rows;
-	_delay_us(10); 
+	_delay_us(10);
 	return ret;
 }
 
@@ -80,7 +81,6 @@ unsigned char getKeypadData()
 /*
 		1 		2  		3
 4 		1 		2 		3
-
 3		4 		5 		6
 
 2 		7 		8 		9
@@ -100,7 +100,7 @@ unsigned char buttonValue(unsigned char buttonPress)
 	if(buttonPress == 0x81) return '3';
 
 	if(buttonPress == 0x12) return '4';
-	if(buttonPress == 0x22) return '5'; 
+	if(buttonPress == 0x22) return '5';
 	if(buttonPress == 0x42) return '6';
 	if(buttonPress == 0x82) return '7';
 
@@ -113,5 +113,4 @@ unsigned char buttonValue(unsigned char buttonPress)
 	if(buttonPress == 0x28) return 'D';
 	if(buttonPress == 0x48) return 'E';
 	if(buttonPress == 0x88) return 'F';
-
 }
