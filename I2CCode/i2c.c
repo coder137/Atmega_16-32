@@ -7,6 +7,7 @@ void i2c_init()
 {
 	/*Hardcoded*/
 	TWBR = 72; //16MHZ , 100K I2C SPEED
+
 	//IF TWSR IS ENABLED CHANGE TWBR TO 2;
 	///TWSR |= ((1 << TWPS1) | (0 << TWPS0)); //16 + 2*4^2 //we can change the timing, check
 
