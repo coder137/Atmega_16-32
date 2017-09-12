@@ -1,18 +1,14 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-//add these modules
+//use these packages
 #include "rtc.h"
 #include "serial.h"
 
-
 int main(void)
 {
-
 	serial_init(9600);
 	rtc_init();
-
-	//upload data
 	rtc_write(0x00, 0x40);
 	rtc_write(0x01, 0x00);
 	rtc_write(0x02, 0x23);
@@ -21,7 +17,7 @@ int main(void)
 	rtc_write(0x05, 0x05);
 	rtc_write(0x06, 0x17);
 
-	//polling code written explicitely
+	//explicitly written, we can use functions
 	while(1)
 	{
 		unsigned char sec = rtc_read(0x00);
@@ -53,8 +49,7 @@ int main(void)
 		serial_tx((year>>4)|0x30);
 		serial_tx((year&0x0f)|0x30);
 		serial_tx('\n');
-
-
+		
 		_delay_ms(1000);
 	}
 }
