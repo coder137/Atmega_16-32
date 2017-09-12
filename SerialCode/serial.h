@@ -4,7 +4,7 @@
 /*
 USART Baud Rate Register
 UBRR	16bit register for setting Baud Rate
-UBRR = (F_CPU/16*BaudRate) -1 
+UBRR = (F_CPU/16*BaudRate) -1
 
 UDR = USART Data Register
 
