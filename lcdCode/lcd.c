@@ -16,7 +16,7 @@
 #define c_pin PINB
 
 //0x07
-#define rs 0 
+#define rs 0
 #define rw 1
 #define en 2
 
@@ -90,7 +90,7 @@ void lcd_writeString(char *str)
 void lcd_writeRTCData(unsigned char data)
 {
 	lcd_Data((data >> 4)|0x30); //get msb first
-	lcd_Data((data & 0x0f)| 0x30); //get lsb later 
+	lcd_Data((data & 0x0f)| 0x30); //get lsb later
 }
 
 void lcd_writeTimeString(unsigned char block1, unsigned char block2, unsigned char block3)
@@ -100,7 +100,7 @@ void lcd_writeTimeString(unsigned char block1, unsigned char block2, unsigned ch
 	lcd_writeRTCData(block2);
 	lcd_Data('/');
 	lcd_writeRTCData(block3);
-	
+
 	for(unsigned char i=0;i<8;i++)
 		lcd_Command(0x10); //shift cursor to the left by 8;
 }
