@@ -10,9 +10,9 @@ Code for Atmega16/32 based microcontrollers
 5. DS1307 Interfacing library
 
 # To Add
-Timer Interfacing library
-Interrupt Interfacing library
-ADC/DAC Interfacing library
-SPI Communication library
-PWM library
-Conversions library (ASCII to DEC, BCD to ASCII)
+1. Timer Interfacing library
+2. Interrupt Interfacing library
+3. ADC/DAC Interfacing library
+4. SPI Communication library
+5. PWM library
+6. Conversions library (ASCII to DEC, BCD to ASCII)
