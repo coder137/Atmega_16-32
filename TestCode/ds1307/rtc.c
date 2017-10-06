@@ -36,7 +36,7 @@ unsigned char rtc_read(unsigned char address)
 	i2c_write(address);
 	//i2c_stop();
 	//IF IT IS A REPEATED START GIVE A SMALL DELAY
-	i2c_start();
+	i2c_start(); 
 	i2c_write(0xd1); //SA + R
 	data = i2c_read(0); //we send a NACK
 	i2c_stop();
@@ -45,7 +45,7 @@ unsigned char rtc_read(unsigned char address)
 	return data;
 }
 
-//WORKS
+//test this out
 void rtc_multiread(unsigned char address, unsigned char* data, unsigned char len)
 {
 	i2c_start();
