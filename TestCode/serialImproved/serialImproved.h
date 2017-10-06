@@ -3,7 +3,7 @@
 
 //since we use the FILE pointer
 #include <stdio.h>
-
+#include <stdarg.h>
 
 /*
 THIS LIBRARY is to be used with the Serial.h library,

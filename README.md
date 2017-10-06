@@ -19,3 +19,4 @@ Code for Atmega16/32 based microcontrollers
 3. ADC/DAC Interfacing library
 4. SPI Communication library
 5. PWM library
+6. <Time.h> library for Interfacing with ds1307 RTC
