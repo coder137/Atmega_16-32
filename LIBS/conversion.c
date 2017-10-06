@@ -8,7 +8,16 @@ void bcd_to_ascii(unsigned char bcd, char *ret)
 	*ret++ = ((bcd >> 4) | 0x30);
 	*ret++ = ((bcd & 0x0f) | 0x30);
 	*ret = '\0';
+}
 
+char* bcd_to_ascii_M2(unsigned char bcd)
+{
+	static char ret[3];
+	ret[0] = ((bcd >> 4) | 0x30);
+	ret[1] = ((bcd & 0x0f) | 0x30);
+	ret[2] = '\0';
+
+	return ret;
 }
 
 //0x31,0x032 to 0x12
@@ -43,3 +52,8 @@ char* decimal_to_ascii(int dec)
 }
 
 //ascii to decimal, 0x31 to 0x01, easy LOL
+unsigned char ascii_to_decimal(unsigned char num1)
+{
+	return (num1 - 0x30);
+	//or use bitwise operations
+}

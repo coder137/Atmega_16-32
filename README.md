@@ -6,9 +6,11 @@ Code for Atmega16/32 based microcontrollers
 
 1. Serial Communication library
 2. I2C/TWI Communication library
-3. Keypad Interfacing library
-4. LCD Interfacing library
-5. DS1307 Interfacing library
+3. Serial Improved Communication library
+4. Keypad Interfacing library
+5. LCD Interfacing library
+6. DS1307 Interfacing library
+7. Conversions library (ASCII to DEC, BCD to ASCII)
 
 # To Add
 
@@ -17,4 +19,3 @@ Code for Atmega16/32 based microcontrollers
 3. ADC/DAC Interfacing library
 4. SPI Communication library
 5. PWM library
-6. Conversions library (ASCII to DEC, BCD to ASCII)
