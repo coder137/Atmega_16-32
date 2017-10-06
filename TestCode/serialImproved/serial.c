@@ -29,13 +29,13 @@ void serial_tx(unsigned char data)
 }
 
 
-void serial_tx_str(char* string)
+void serial_tx_str(char* str)
 {
 	unsigned char i;
-	int len = strlen(string);
+	int len = strlen(str);
 	for(i=0;i<len;i++)
 	{
-		serial_tx(*(string + i));
+		serial_tx(*(str + i));
 	}
 }
 
