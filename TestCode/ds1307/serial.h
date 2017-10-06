@@ -4,7 +4,7 @@
 /*
 USART Baud Rate Register
 UBRR	16bit register for setting Baud Rate
-UBRR = (F_CPU/16*BaudRate) -1 
+UBRR = (F_CPU/16*BaudRate) -1
 
 UDR = USART Data Register
 
@@ -25,13 +25,19 @@ URSEL	UMSEL	UPM1	UPM0	USBS	UCSZ1	UCSZ0	UCPOL
 /*
 Here both the Tx and Rx are initialized
 */
-void serial_init(unsigned int);
+
+//baud
+void serial_init(unsigned int baud);
 
 unsigned char serial_rx();
-void serial_tx(unsigned char);
 
-void serial_tx_str(char*);
+//data(char)
+void serial_tx(unsigned char data);
 
+//data(string)
+void serial_tx_str(char* str);
+
+//return a string
 //char* serial_rx_str();
 
 #endif

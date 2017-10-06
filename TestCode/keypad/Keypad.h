@@ -30,7 +30,7 @@ unsigned char getKeypadData();
 //DEPRECEATED
 //unsigned char buttonState();
 
-unsigned char buttonValue(unsigned char);
+unsigned char buttonValue(unsigned char buttonPress);
 
 //1 if button is pressed
 //0 if button is not pressed
