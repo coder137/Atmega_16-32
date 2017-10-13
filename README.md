@@ -2,21 +2,50 @@
 
 Code for Atmega16/32 based microcontrollers
 
+
+# Usage
+
+#### Windows
+
+* Install mingw and add it to your path
+* Install AVR Package in Sublime Text and create new project
+* `make` the folder in which project exists
+
+
 # Libraries
 
-1. Serial Communication library
-2. I2C/TWI Communication library
-3. Serial Improved Communication library
-4. Keypad Interfacing library
-5. LCD Interfacing library
-6. DS1307 Interfacing library
-7. Conversions library (ASCII to DEC, BCD to ASCII)
+### Communication
+
+* Serial Communication library
+* I2C/TWI Communication library
+* Serial Improved Communication library
+
+### Interfacing
+
+* Keypad Interfacing library
+* LCD Interfacing library
+* DS1307 Interfacing library
+* Conversions library (ASCII to DEC, BCD to ASCII)
+
 
 # To Add
 
-1. Timer Interfacing library
-2. Interrupt Interfacing library
-3. ADC/DAC Interfacing library
-4. SPI Communication library
-5. PWM library
-6. <Time.h> library for Interfacing with ds1307 RTC
+* Timer Interfacing library
+* Interrupt Interfacing library
+* ADC/DAC Interfacing library
+* SPI Communication library
+* PWM library
+* `Time.h` library for Interfacing with ds1307 RTC
+
+
+# .gitignore
+
+Not ignored any .c / .h file and Makeile
+
+ignored files
+* .d
+* .o
+* .elf
+* .hex
+* .lst
+* .map

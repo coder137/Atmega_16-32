@@ -1,0 +1,11 @@
+# Do not ignore any .c / .h files or the Makefile
+
+# Might have to ignore settings.h file and SublimeAVR.sublime-project
+# These are auto-generated when we use the 'make' command
+
+*.d
+*.o
+*.elf
+*.hex
+*.lst
+*.map
