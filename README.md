@@ -27,15 +27,23 @@ Code for Atmega16/32 based microcontrollers
 * DS1307 Interfacing library
 * Conversions library (ASCII to DEC, BCD to ASCII)
 
+# Improvements
+
+* I2C Communication library
+	* Add more robust methods
+* RTC_DS1307 Interfacing library
+	* Create #define statements to get device slave hex code
 
 # To Add
 
+* RTC_DS3231 Interfacing library
+	* Build this on top of the RTC_DS1307 (pure C)
 * Timer Interfacing library
 * Interrupt Interfacing library
 * ADC/DAC Interfacing library
 * SPI Communication library
 * PWM library
-* `Time.h` library for Interfacing with ds1307 RTC
+* `Time.h` library for Interfacing with ds1307 and ds3231 RTC
 
 
 # .gitignore
