@@ -5,12 +5,31 @@ Code for Atmega16/32 based microcontrollers
 
 # Usage
 
-#### Windows
+### Usage with Windows and Makefile
 
 * Install mingw and add it to your path
 * Install AVR Package in Sublime Text and create new project
 * `make` the folder in which project exists
 
+### Check (Connected)
+
+`avrdude -c usbasp -p m32`
+
+### Flash
+
+`avrdude -c usbasp -p m32 -U flash:w:<firmware.hex>`
+
+### Using with AVR Studio
+
+**Set F_CPU**
+
+- Goto Projects on Top Navigation
+- `ProjectName` Properties
+- AVR Gnu C Compiler
+- Symbols
+- Defined Symbols
+
+`F_CPU=8000000UL`
 
 # Libraries
 
@@ -48,7 +67,7 @@ Code for Atmega16/32 based microcontrollers
 
 # .gitignore
 
-Not ignored any .c / .h file and Makeile
+Not ignored any .c / .h file and make file
 
 ignored files
 * .d
